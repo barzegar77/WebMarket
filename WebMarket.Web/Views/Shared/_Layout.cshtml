@@ -15,38 +15,29 @@
 </head>
 <body dir="rtl">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">صفحه اصلی</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">صفحه اصلی</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-            <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">دسته بندی ها</a>
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            مدیریت محتوا
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">مدیریت دسته ها</a></li>
+            <li><a class="dropdown-item" asp-area="Admin" asp-controller="CoverType" asp-action="Index">مدیریت کاور تایپ ها</a></li>
+     @*       <li><a class="dropdown-item" href="#">Something else here</a></li>*@
+          </ul>
         </li>
-
-@*        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">سیستم مدیریت</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#"></a>
-            <a class="dropdown-item" href="#">کاورتایپ ها</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-        </li>*@
       </ul>
-
-      <form class="d-flex">
-        <input class="form-control me-sm-2" type="text" placeholder="جستوجو">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">جستوجو</button>
-      </form>
     </div>
   </div>
 </nav>
+
 
     </header>
     <div class="container">
@@ -61,7 +52,7 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

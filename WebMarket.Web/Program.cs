@@ -11,7 +11,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     builder.Configuration.GetConnectionString("DefultConnection")
     ));
 
-builder.Services.AddScoped<ICoverTypeService, CoverTypeService>();
+builder.Services.AddScoped<ICoverTypeService ,CoverTypeService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 //builder.Services.AddSingleton<ICategoryRepository, CategoryRepository>();
 //builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
