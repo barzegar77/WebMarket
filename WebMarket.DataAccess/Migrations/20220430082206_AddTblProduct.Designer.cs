@@ -3,17 +3,19 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebMarket.DataAccess;
 
 #nullable disable
 
-namespace WebMarket.DataAccess.Migrations
+namespace WebMarket.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220430082206_AddTblProduct")]
+    partial class AddTblProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -81,9 +83,6 @@ namespace WebMarket.DataAccess.Migrations
                     b.Property<int>("CoverTypeId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -92,16 +91,6 @@ namespace WebMarket.DataAccess.Migrations
                         .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
-
-                    b.Property<string>("ImageAlt")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("ImageTitle")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("ImgeUrl")
                         .IsRequired()
@@ -118,10 +107,6 @@ namespace WebMarket.DataAccess.Migrations
 
                     b.Property<double>("Price50")
                         .HasColumnType("float");
-
-                    b.Property<string>("ShortDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
