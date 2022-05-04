@@ -42,7 +42,7 @@ namespace WebMarket.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("WebMarket.Models.CoverType", b =>
@@ -59,7 +59,7 @@ namespace WebMarket.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CoverTypes");
+                    b.ToTable("CoverTypes", (string)null);
                 });
 
             modelBuilder.Entity("WebMarket.Models.Product", b =>
@@ -134,7 +134,7 @@ namespace WebMarket.DataAccess.Migrations
 
                     b.HasIndex("CoverTypeId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("WebMarket.Models.Product", b =>

@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 using WebMarket.DataAccess.Services.Interface;
 using WebMarket.Models;
+using WebMarket.Models.ViewModels;
 
 namespace WebMarket.DataAccess.Services
 {
@@ -12,9 +13,9 @@ namespace WebMarket.DataAccess.Services
             _db = db;
         }
 
-        public void Add(Product entity)
+        public void Add(ProductVM entity)
         {
-            _db.Products.Add(entity);
+            _db.Products.Add(entity.Product);
             _db.SaveChanges();
         }
 
@@ -43,25 +44,25 @@ namespace WebMarket.DataAccess.Services
             _db.SaveChanges();
         }
 
-        public void Update(Product product)
+        public void Update(ProductVM obj)
         {
-            var ObjProduct = _db.Products.FirstOrDefault(x => x.Id == product.Id);
+            var ObjProduct = _db.Products.FirstOrDefault(x => x.Id == obj.Product.Id);
             if(ObjProduct != null)
             {
-                product.Title = ObjProduct.Title;
-                product.Description = ObjProduct.Description;
-                product.ShortDescription = ObjProduct.ShortDescription;
-                product.ISBN = ObjProduct.ISBN;
-                product.Author = ObjProduct.Author;
-                product.ListPrice = ObjProduct.ListPrice;
-                product.Price = ObjProduct.Price;
-                product.Price50 = ObjProduct.Price50;
-                product.Price100 = ObjProduct.Price100;
-                product.ImgeUrl = ObjProduct.ImgeUrl;
-                product.ImageTitle = ObjProduct.ImageTitle;
-                product.ImageAlt = ObjProduct.ImageAlt;
-                product.CategoryId = ObjProduct.CategoryId;
-                product.CoverTypeId = ObjProduct.CoverTypeId;
+                obj.Product.Title = ObjProduct.Title;
+                obj.Product.Description = ObjProduct.Description;
+                obj.Product.ShortDescription = ObjProduct.ShortDescription;
+                obj.Product.ISBN = ObjProduct.ISBN;
+                obj.Product.Author = ObjProduct.Author;
+                obj.Product.ListPrice = ObjProduct.ListPrice;
+                obj.Product.Price = ObjProduct.Price;
+                obj.Product.Price50 = ObjProduct.Price50;
+                obj.Product.Price100 = ObjProduct.Price100;
+                obj.Product.ImgeUrl = ObjProduct.ImgeUrl;
+                obj.Product.ImageTitle = ObjProduct.ImageTitle;
+                obj.Product.ImageAlt = ObjProduct.ImageAlt;
+                obj.Product.CategoryId = ObjProduct.CategoryId;
+                obj.Product.CoverTypeId = ObjProduct.CoverTypeId;
             }
         }
     }

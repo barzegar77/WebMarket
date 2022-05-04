@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -48,6 +49,7 @@ namespace WebMarket.Models
         public double Price100 { get; set; }
 
         [DisplayName("تصویر")]
+        [ValidateNever]
         public string ImgeUrl { get; set; }
 
         [DisplayName("عنوان تصویر")]
@@ -59,15 +61,17 @@ namespace WebMarket.Models
         public string ImageAlt { get; set; }
 
         [Required(ErrorMessage = "دسته اجباریست")]
-        [DisplayName("دسته")]
+        [Display(Name = "دسته")]
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
+        [ValidateNever]
         public Category Category { get; set; }
 
         [Required(ErrorMessage = "کاورتایپ اجباریست")]
         [DisplayName("کاورتایپ")]
         public int CoverTypeId { get; set; }
         [ForeignKey("CoverTypeId")]
+        [ValidateNever]
         public CoverType CoverType { get; set; }
 
         public DateTime CreateDate { get; set; } = DateTime.Now;
