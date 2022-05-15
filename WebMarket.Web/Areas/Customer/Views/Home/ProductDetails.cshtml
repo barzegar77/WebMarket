@@ -1,0 +1,61 @@
+﻿@using WebMarket.Models.ViewModels
+@model ShoppingCartVM
+@{
+    ViewData["Title"] = "جزییات محصول";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="row">
+        <aside class="col-4 border-right">
+            <article class="gallery-wrap">
+                <div class="img-big-wrap">
+                    <div class="text-center mt-4">
+                        <a href="#">
+                            <img class="img-thumbnail" src="~/images/products/@Model.Product.ImgeUrl" alt="@Model.Product.ImageAlt" title="@Model.Product.ImageTitle" >
+                        </a>
+                    </div>
+                </div> 
+            </article> 
+        </aside>
+        <aside class="col-8">
+            <article class="card-body p-5">
+                <div class="text-center">
+                    <h2 class="title mb-3">@Model.Product.Title</h2>
+                </div>
+                <hr />
+                <p class="price-detail-wrap text-left">
+                    <span class="price h5 text-danger">
+                        <span class="currency">با قیمت استثنایی</span>&nbsp;<span class="num">@Model.Product.Price.ToString("#,000")</span>&nbsp;<span class="currency">تومان</span>
+                    </span>
+                </p>
+                <dl class="item-property">
+                    <dt>توضیحات</dt>
+                    <dd>
+                        <p>
+                            @Model.Product.Description
+                        </p>
+                    </dd>
+                </dl>
+                <div class="text-warning">
+                                    <dl class="param param-feature">
+                    <dt>شماره شابک: <b class="text-bold text-dark">@Model.Product.ISBN</b></dt>
+                </dl>
+                <dl class="param param-feature">
+                    <dt>نام نویسنده: <b class="text-bold text-dark">@Model.Product.Author</b></dt>
+                </dl>
+                <dl class="param param-feature">
+                    <dt>آخرین بروزرسانی: <b class="text-bold text-dark">@Model.Product.CreateDate.ToShortDateString()</b></dt>
+                </dl>  
+                </div>
+            
+                <hr>
+                <div class="text-left">
+                    <a href="#" class="btn btn-lg btn-primary text-uppercase"> خرید کتاب </a>
+                </div>
+            </article>
+        </aside> 
+    </div> 
+</div>
+
+

@@ -16,6 +16,6 @@ namespace WebMarket.DataAccess.Services.Interface
         public Product GetFirstOrDefault(Expression<Func<Product, bool>> filter);
         public void Remove(Product entity);
         public void RemoveRange(IEnumerable<Product> entities);
-        public void Update(ProductVM product);
+        public void Update(Product product);
     }
 }
