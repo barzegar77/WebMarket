@@ -21,9 +21,11 @@ namespace WebMarket.DataAccess.Services
 
  
 
-        public IEnumerable<ShoppingCart> GetAll()
+        public IEnumerable<ShoppingCart> GetAll(string? id)
         {
-            IEnumerable<ShoppingCart> query = _db.ShoppingCarts.Include(u => u.ApplicationUser).Include(p => p.Product);
+            IEnumerable<ShoppingCart> query = _db.ShoppingCarts
+                .Where(x => x.ApplicationUserId == id)
+                .Include(p => p.Product);
             return query;
         }
 

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ShoppingCart>
+﻿@using WebMarket.Models.ViewModels
+@model ShoppingCartVM
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
@@ -22,10 +23,10 @@
 			</div>
 
 			<div class="card-body">
-				@foreach(var item in Model){
+				@foreach(var item in Model.ListCart){
 				<div class="row">
 					<div class="d-none d-lg-block col-lg-1 text-center py-2">
-						<img src="@item.Product.ImgeUrl" class="rounded" width="100%" />
+						<img src="~/images/products/@item.Product.ImgeUrl" class="rounded" width="100%" />
 					</div>
 					<div class="col-12 col-lg-6 pt-md-3">
 						<h5><strong>@item.Product.Title</strong></h5>
@@ -34,7 +35,7 @@
 					<div class="col-12  col-lg-5 text-center row">
 						<div class="col-4 text-md-right pt-4">
 							<h6><strong>@item.Product.Price.ToString()
-								<span class="text-muted">&nbsp;x&nbsp;</span>@item.Count </strong></h6>
+								<span class="text-muted"></span>@item.Count </strong></h6>
 						</div>
 						<div class="col-6 col-sm-4 col-lg-6 pt-2">
 							<div class="w-75 btn-group" role="group">
