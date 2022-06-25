@@ -20,6 +20,8 @@ namespace WebMarket.Web.Areas.Customer.Controllers
             _signInManager = signInManager;
         }
 
+        public int OrderTotal { get; set; }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -29,8 +31,34 @@ namespace WebMarket.Web.Areas.Customer.Controllers
             {
                 ListCart = _shoppingCart.GetAll(user.Id)
             };
+            foreach (var cart in shoppingCartVM.ListCart)
+            {
+                cart.Price = GetPriceBasedOnQuantity(cart.Count, cart.Product.Price, cart.Product.Price50, cart.Product.Price100);
+            }
             return View(shoppingCartVM);
         }
+
+        
+        private double GetPriceBasedOnQuantity(double quantity, double price,double price50, double price100)
+        {
+            if (quantity <= 50)
+            {
+                return price;
+            }
+            else
+            {
+                if (quantity <= 100)
+                {
+                    return price50;
+                }
+                else
+                {
+                    return price100;
+                }
+            }
+
+        }
+
     }
 }
 
