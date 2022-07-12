@@ -34,6 +34,7 @@ namespace WebMarket.Web.Areas.Customer.Controllers
             foreach (var cart in shoppingCartVM.ListCart)
             {
                 cart.Price = GetPriceBasedOnQuantity(cart.Count, cart.Product.Price, cart.Product.Price50, cart.Product.Price100);
+                shoppingCartVM.CartTotal += (cart.Price * cart.Count);
             }
             return View(shoppingCartVM);
         }
